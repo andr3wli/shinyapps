@@ -10,7 +10,7 @@ These are some of the shiny applications that I have created.
 ### [shinyJackpot]()
 An application to explore and visualize demographic and lottery ticket sales data in the greater Toronto area. Check out our [paper]() accompanying this app!
 
-**Packages:**The application uses the following packages: [`shiny`](https://shiny.rstudio.com), [`tidyverse`](https://www.tidyverse.org), [`ggiraph`](https://davidgohel.github.io/ggiraph/articles/offcran/using_ggiraph.html), [`leaflet`](), [`shinythemes`](), and [`lottodata`](https://andr3wli.github.io/lottodata/). To see which versions of these packages are used and the dependencies, check the `session_info.txt` file in the app directory.
+**Packages:** The application uses the following packages: [`shiny`](https://shiny.rstudio.com), [`tidyverse`](https://www.tidyverse.org), [`ggiraph`](https://davidgohel.github.io/ggiraph/articles/offcran/using_ggiraph.html), [`leaflet`](), [`shinythemes`](), and [`lottodata`](https://andr3wli.github.io/lottodata/). To see which versions of these packages are used and the dependencies, check the `session_info.txt` file in the app directory.
 
 **Data sources:** The data for the lottery ticket sales were obtained from [Ontraio Lottery and Gaming Corporation](https://www.olg.ca/en/home.html) via a freedom of information act request. These data sets are freely available on [Open Science Framework](//osf.io/qwrxy/) and on [Github](https://github.com/andr3wli/lottodata). Geocoding was provided by [GeoCoder.ca](https://geocoder.ca).
 
@@ -21,8 +21,10 @@ shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shinyJackpot")
 ```
 ![](screenshot/map_screenshot.png)
 
-### [shinyRGT]()
+### [shinyRGT](https://andrewcli.shinyapps.io/shinyRGT/)
 An application to easily tidy, explore and visualize rat gambling task data. As well, it can be especially useful for researchers using the RGT in tandem with DREADDs. Check out our [paper]() accompanying this app!
+
+By: Andrew Li (UBC) and Georgios Karamanis (Uppsala)
 
 **Packages:** The application uses the following packages: [`shiny`](https://shiny.rstudio.com), [`tidyverse`](https://www.tidyverse.org), [`shinythemes`](), and [`shinyWidgets`](https://github.com/dreamRs/shinyWidgets). To see which versions of these packages are used and there dependencies, look at the `session_info.txt` file in the repo directory. 
 
@@ -31,6 +33,9 @@ An application to easily tidy, explore and visualize rat gambling task data. As 
 ```r
 shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shinyRGT")
 ```
+
+Or you can access Jackpot via my shiny server [here](https://andrewcli.shinyapps.io/shinyRGT/).
+
 ![](screenshot/data_viz_rgt.png)
 
 ### [Andrew's Shiny Bar](https://andrewcli.shinyapps.io/andrews_bar/)
@@ -54,7 +59,7 @@ An R shiny application to visualize lottery ticket sales and lottery ticket size
 
 **Packages:** The application uses the following packages: [`shiny`](https://shiny.rstudio.com), [`plotly`](https://plotly.com/r/), [`lottodata`](https://andr3wli.github.io/lottodata/), [`tidyverse`](https://www.tidyverse.org).
 
-**Data sources:** The data for the lottery ticket sales were obtained from [Ontraio Lottery and Gaming Corporation](https://www.olg.ca/en/home.html) via a freedom of information act request. These data sets are freely available on [Open Science Framework](//osf.io/qwrxy/) and on [Github](https://github.com/andr3wli/lottodata). Geocoding was provided by [GeoCoder.ca](https://geocoder.ca).
+**Data sources:** The data for the lottery ticket sales were obtained from [Ontraio Lottery and Gaming Corporation](https://www.olg.ca/en/home.html) via a freedom of information act request. These data sets are freely available on [Open Science Framework](//osf.io/qwrxy/) and on [Github](https://github.com/andr3wli/lottodata). 
 
 **Launch application:**
 
