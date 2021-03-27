@@ -5,7 +5,7 @@
 ![](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fdrewroc6)
 <!-- badges: end -->
 
-These are some of the shiny applications that I have created.
+These are some of the shiny applications that I have created. Each folder has its own README.
 
 ### [shinyJackpot]()
 An application to explore and visualize demographic and lottery ticket sales data in the greater Toronto area. Check out our [paper]() accompanying this app!
@@ -34,7 +34,7 @@ By: Andrew Li (UBC) and Georgios Karamanis (Uppsala)
 shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shinyRGT")
 ```
 
-Or you can access Jackpot via my shiny server [here](https://andrewcli.shinyapps.io/shinyRGT/).
+Or you can access Jackpot via my shiny server here: https://andrewcli.shinyapps.io/shinyRGT/
 
 ![](screenshot/data_viz_rgt.png)
 
@@ -49,7 +49,7 @@ My submission for STAT 545 at UBC. With everything being online because of COVID
 shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shiny_bar")
 ```
 
-Or you can access Jackpot via my shiny server [here](https://andrewcli.shinyapps.io/andrews_bar/).
+Or you can access Jackpot via my shiny server here: https://andrewcli.shinyapps.io/andrews_bar/
 
 ![](screenshot/bar.png)
 
@@ -67,6 +67,6 @@ An R shiny application to visualize lottery ticket sales and lottery ticket size
 shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "jackpot")
 ```
 
-Or you can access Jackpot via my shiny server [here](https://andrewcli.shinyapps.io/Jackpot/).
+Or you can access Jackpot via my shiny server here: https://andrewcli.shinyapps.io/Jackpot/
 
 ![](screenshot/jackpot.png)
