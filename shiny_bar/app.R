@@ -1,7 +1,7 @@
-library(shiny)
-library(shinyWidgets)
-library(tidyverse)
-library(ggforce)
+library(shiny) # Web Application Framework for R
+library(shinyWidgets) # Custom Inputs Widgets for Shiny
+library(tidyverse) # Easily Install and Load the 'Tidyverse'
+library(ggforce) # Accelerating 'ggplot2'
 options(shiny.autoreload = TRUE)
 theme_set(theme_void())
 
@@ -169,3 +169,4 @@ server <- function(input, output) {
 
 }
 shinyApp(ui = ui, server = server)
+

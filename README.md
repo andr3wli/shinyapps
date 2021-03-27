@@ -21,6 +21,8 @@ shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shinyJackpot")
 ```
 ![](screenshot/map_screenshot.png)
 
+<hr>
+
 ### [shinyRGT](https://andrewcli.shinyapps.io/shinyRGT/)
 An application to easily tidy, explore and visualize rat gambling task data. As well, it can be especially useful for researchers using the RGT in tandem with DREADDs. Check out our [paper]() accompanying this app!
 
@@ -38,6 +40,8 @@ Or you can access Jackpot via my shiny server here: https://andrewcli.shinyapps.
 
 ![](screenshot/data_viz_rgt.png)
 
+<hr>
+
 ### [Andrew's Shiny Bar](https://andrewcli.shinyapps.io/andrews_bar/)
 My submission for STAT 545 at UBC. With everything being online because of COVID, use this bar to enjoy your favourite drink and bar snack. 
 
@@ -53,6 +57,7 @@ Or you can access Jackpot via my shiny server here: https://andrewcli.shinyapps.
 
 ![](screenshot/bar.png)
 
+<hr> 
 
 ### [Jackpot](https://andrewcli.shinyapps.io/Jackpot/)
 An R shiny application to visualize lottery ticket sales and lottery ticket size in Toronto, Canada. 
