@@ -1,0 +1,12 @@
+name: shiny_bar
+title: shiny_bar
+username:
+account: andrewcli
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3871667
+bundleId: 4400715
+url: https://andrewcli.shinyapps.io/shiny_bar/
+when: 1616830575.97507
+asMultiple: FALSE
+asStatic: FALSE
