@@ -7,10 +7,10 @@
 
 These are some of the shiny applications that I have created. Each folder has its own README.
 
-### [shinyJackpot]()
-An application to explore and visualize demographic and lottery ticket sales data in the greater Toronto area. Check out our [paper]() accompanying this app!
+### [shinyJackpot](https://andrewcli.shinyapps.io/shinyJackpot/)
+An application to explore and visualize demographic and lottery ticket sales data in the greater Toronto area. This app is an upgrade to the first shiny app I ever made (Jackpot) Check out our [paper]() accompanying this app!
 
-**Packages:** The application uses the following packages: [`shiny`](https://shiny.rstudio.com), [`tidyverse`](https://www.tidyverse.org), [`ggiraph`](https://davidgohel.github.io/ggiraph/articles/offcran/using_ggiraph.html), [`leaflet`](), [`shinythemes`](), and [`lottodata`](https://andr3wli.github.io/lottodata/). To see which versions of these packages are used and the dependencies, check the `session_info.txt` file in the app directory.
+**Packages:** The application uses the following packages: [`shiny`](https://shiny.rstudio.com), [`tidyverse`](https://www.tidyverse.org), [`ggiraph`](https://davidgohel.github.io/ggiraph/articles/offcran/using_ggiraph.html), [`leaflet`](), [`shinythemes`](), and [`lottodata`](https://andr3wli.github.io/lottodata/). To see which versions of these pacshinyJackpot_draftkages are used and the dependencies, check the `session_info.txt` file in the app directory.
 
 **Data sources:** The data for the lottery ticket sales were obtained from [Ontraio Lottery and Gaming Corporation](https://www.olg.ca/en/home.html) via a freedom of information act request. These data sets are freely available on [Open Science Framework](//osf.io/qwrxy/) and on [Github](https://github.com/andr3wli/lottodata). Geocoding was provided by [GeoCoder.ca](https://geocoder.ca).
 
@@ -19,6 +19,9 @@ An application to explore and visualize demographic and lottery ticket sales dat
 ```r
 shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shinyJackpot")
 ```
+
+Or you can access shinyJackpot via my shiny server here: https://andrewcli.shinyapps.io/shinyJackpot/
+
 ![](screenshot/map_screenshot.png)
 
 <hr>
@@ -36,7 +39,7 @@ By: Andrew Li (UBC) and Georgios Karamanis (Uppsala)
 shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shinyRGT")
 ```
 
-Or you can access Jackpot via my shiny server here: https://andrewcli.shinyapps.io/shinyRGT/
+Or you can access shinyRGT via my shiny server here: https://andrewcli.shinyapps.io/shinyRGT/
 
 ![](screenshot/data_viz_rgt.png)
 
@@ -53,7 +56,7 @@ My submission for STAT 545 at UBC. With everything being online because of COVID
 shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shiny_bar")
 ```
 
-Or you can access Jackpot via my shiny server here: https://andrewcli.shinyapps.io/andrews_bar/
+Or you can access Shiny Bar via my shiny server here: https://andrewcli.shinyapps.io/andrews_bar/
 
 ![](screenshot/bar.png)
 
