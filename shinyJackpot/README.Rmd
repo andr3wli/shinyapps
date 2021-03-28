@@ -13,7 +13,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **What is this app?** An application to explore and visualize demographic and lottery ticket sales data in the greater Toronto area. Check out our [paper]() accompanying this app.
 
-**Packages:** The application uses the following packages: [`shiny`](https://shiny.rstudio.com), [`tidyverse`](https://www.tidyverse.org), [`ggiraph`](https://davidgohel.github.io/ggiraph/articles/offcran/using_ggiraph.html), [`leaflet`](), [`shinythemes`](), and [`lottodata`](https://andr3wli.github.io/lottodata/). To see which versions of these packages are used and the dependencies, check the `session_info.txt` file in the app directory. 
+**Directory:** 
+
+* `app.R` contains the frontend and backend code needed to generate shinyJackpot
+* `css` contains code for the map tab
+* `data` contains all the resulting tidy data used for the app
+* `data_wrangling` contains R code that was udsed to generate the clean data
+* `md` contains the markdown files and images needed to generate this README and the intro tab
+* `untidy_data` contains CSV files to be cleaned 
+* `session_info.txt` contains information about the packages and there dependencies for this app 
 
 **Data sources:** The data for the lottery ticket sales were obtained from [Ontraio Lottery and Gaming Corporation](https://www.olg.ca/en/home.html) via a freedom of information act request. These data sets are freely available on [Open Science Framework](//osf.io/qwrxy/) and on [Github](https://github.com/andr3wli/lottodata). Geocoding was provided by [GeoCoder.ca](https://geocoder.ca).
 
@@ -22,7 +30,7 @@ knitr::opts_chunk$set(echo = TRUE)
 shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shinyJackpot")
 ```
 
-Alternatively, it is available on my Shiny server: [ADD LINK TO SHINY APP HERE]()
+Alternatively, it is available on my Shiny server: [ADD LINK TO SHINY APP HERE](shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shinyJackpot")
 
 ![map](md/map_screenshot.png)
 ![cor](md/cor_screenshot.png)
