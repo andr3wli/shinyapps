@@ -13,7 +13,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **What is this app?** An application to explore and visualize demographic and lottery ticket sales data in the greater Toronto area. Check out our [paper]() accompanying this app.
 
-**Packages:** The application uses the following packages: [`shiny`](https://shiny.rstudio.com), [`tidyverse`](https://www.tidyverse.org), [`ggiraph`](https://davidgohel.github.io/ggiraph/articles/offcran/using_ggiraph.html), [`leaflet`](), [`shinythemes`](), and [`lottodata`](https://andr3wli.github.io/lottodata/). To see which versions of these packages are used and the dependencies, check the `session_info.txt` file in the app directory. 
+**Directory:** 
+
+* `app.R` contains the source for the frontend and the backend
+* `css` is for the map tab
+* `data` contains the resulting clean data generated from `data_wrangling
+* `data_wrangling` contains the R code that cleans data
+* `md` contains the markdown files and images needed for the README and the intro tab
+* `untidy_data` contains the CSV files to be cleaned
+* `session_info.txt` contains information about the packages and there dependencies for this app 
 
 **Data sources:** The data for the lottery ticket sales were obtained from [Ontraio Lottery and Gaming Corporation](https://www.olg.ca/en/home.html) via a freedom of information act request. These data sets are freely available on [Open Science Framework](//osf.io/qwrxy/) and on [Github](https://github.com/andr3wli/lottodata). Geocoding was provided by [GeoCoder.ca](https://geocoder.ca).
 
