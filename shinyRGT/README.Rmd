@@ -24,7 +24,7 @@ A GUI to easily tidy, explore and visualize rat gambling task data. As well, it 
 
 #### Launch application:
 ```{r}
-shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shinyRGT")
+#shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shinyRGT")
 ```
 
 Alternatively, it is available on my Shiny server [here](https://andrewcli.shinyapps.io/shinyRGT/)

@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 **Launch application:**
 ```{r}
-shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shinyJackpot")
+#shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shinyJackpot")
 ```
 
 Alternatively, it is available on my Shiny server: [ADD LINK TO SHINY APP HERE]()

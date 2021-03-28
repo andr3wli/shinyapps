@@ -9,7 +9,7 @@ Toronto Lottery Ticket Sales Data Visualization
 
 **What is this app?** An application to explore and visualize
 demographic and lottery ticket sales data in the greater Toronto area.
-Check out our paper accompanying this app.
+Check out our [paper]() accompanying this app.
 
 **Packages:** The application uses the following packages:
 [`shiny`](https://shiny.rstudio.com),
@@ -31,7 +31,7 @@ by [GeoCoder.ca](https://geocoder.ca).
 **Launch application:**
 
 ``` r
-# shiny::runGitHub(repo = "andr3wli/shinyJackpot")
+#shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shinyJackpot")
 ```
 
 Alternatively, it is available on my Shiny server: [ADD LINK TO SHINY
