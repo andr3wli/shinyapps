@@ -1,5 +1,6 @@
 ###
 # Shiny app by Andrew Li and Georgios Karamanis
+# With the Winstanley Lab at the Unniversity of British Columbia
 ###
 # load required packages
 library(shiny) # Web Application Framework for R
@@ -223,16 +224,21 @@ server <- function(input, output) {
             mutate(omission = sum(Omit)) %>%
             group_by(session, Subject) %>%
             mutate(choice_lat = mean(Choice_Lat, na.rm = TRUE)) %>%
-            group_by(session, Subject) %>%
-            mutate(test_pre = sum(Premature_Resp)) %>%
-            mutate(premature_resp = test_pre / trial) %>%
-            select(- test_pre) %>%
+            # group_by(session, Subject) %>%
+            # mutate(test_pre = sum(Premature_Resp)) %>%
+            # mutate(premature_resp = test_pre / trial) %>%
+            # select(- test_pre) %>%
             group_by(session, Subject) %>%
             mutate(pellets = sum(Pellets)) %>%
             group_by(session, Subject) %>%
             mutate(time_out = Pun_Dur) %>%
             group_by(session, Subject) %>%
             mutate(collect_lat = mean(Collect_Lat, na.rm = T))
+
+        # use the new columns to create the premature column -> call this column premature_resp
+        df <- df %>%
+            group_by(session, Subject) %>%
+            mutate(premature_resp = length(which(Premature_Resp == 1)) / (length(which(Premature_Resp == 1)) + omission + trial))
 
         # this section creates the choice percentage of p1, p2, p3, p4
         # split the data  by the task version
@@ -242,20 +248,20 @@ server <- function(input, output) {
         # create the new choice variables for A version
         cued_a <- group_a %>%
             group_by(Subject, session) %>%
-            mutate(p1_choice = length(which(Chosen == 1)) / trial) %>%
-            mutate(p2_choice = length(which(Chosen == 4)) / trial) %>%
-            mutate(p3_choice = length(which(Chosen == 5)) / trial) %>%
-            mutate(p4_choice = length(which(Chosen == 2)) / trial)
+            mutate(p1_choice = length(which(Chosen == 1)) / length(which(Chosen != 0))) %>%
+            mutate(p2_choice = length(which(Chosen == 4)) / length(which(Chosen != 0))) %>%
+            mutate(p3_choice = length(which(Chosen == 5)) / length(which(Chosen != 0))) %>%
+            mutate(p4_choice = length(which(Chosen == 2)) / length(which(Chosen != 0)))
         # remove any n/a
         cued_a <- replace(cued_a, is.na(cued_a), 0)
 
         # create the new choice variables for B version of task
         cued_b <- group_b %>%
             group_by(Subject, session) %>%
-            mutate(p1_choice = length(which(Chosen == 2)) / trial) %>%
-            mutate(p2_choice = length(which(Chosen == 5)) / trial) %>%
-            mutate(p3_choice = length(which(Chosen == 4)) / trial) %>%
-            mutate(p4_choice = length(which(Chosen == 1)) / trial)
+            mutate(p1_choice = length(which(Chosen == 2)) / length(which(Chosen != 0))) %>%
+            mutate(p2_choice = length(which(Chosen == 5)) / length(which(Chosen != 0))) %>%
+            mutate(p3_choice = length(which(Chosen == 4)) / length(which(Chosen != 0))) %>%
+            mutate(p4_choice = length(which(Chosen == 1)) / length(which(Chosen != 0)))
         # remove n/a
         cued_b <- replace(cued_b, is.na(cued_b), 0)
 

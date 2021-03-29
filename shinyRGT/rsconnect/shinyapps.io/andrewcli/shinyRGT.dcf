@@ -5,8 +5,8 @@ account: andrewcli
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3824125
-bundleId: 4400769
+bundleId: 4405767
 url: https://andrewcli.shinyapps.io/shinyRGT/
-when: 1616832273.56886
+when: 1616984233.02851
 asMultiple: FALSE
 asStatic: FALSE
