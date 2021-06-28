@@ -1,5 +1,6 @@
 ###
 # Shiny app by Andrew Li
+#shinyJackpot
 ###
 # load required packages
 library(shiny) # Web Application Framework for R
