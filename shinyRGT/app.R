@@ -10,6 +10,7 @@ library(shinythemes) # Themes for Shiny
 library(shinydashboard) # Create Dashboards with 'Shiny'
 library(shinyWidgets) # Custom Inputs Widgets for Shiny
 library(shinyjs) # Easily Improve the User Experience of Your Shiny Apps in Seconds
+library(DT) # A Wrapper of the JavaScript Library 'DataTables'
 
 # Define the UI for for shinyRGT
 ui <- fluidPage(useShinyjs(),
@@ -74,10 +75,11 @@ ui <- fluidPage(useShinyjs(),
                                             helpText("Choose the appropriate data"),
                                             radioButtons("disp",
                                                          label = NULL,
-                                                         choices = c("Long data" = "long",
-                                                                     "Sex data" = "sex",
-                                                                     "Virus data" = "virus",
-                                                                     "Transgene data" = "tg"),
+                                                         choices = c("Long form data" = "long",
+                                                                     "Wide form data" = "wide",
+                                                                     "Group by sex" = "sex",
+                                                                     "Group by virus" = "virus",
+                                                                     "Group by transgene" = "tg"),
                                                          selected = "long"),
 
                                             # option to download the data
@@ -160,7 +162,7 @@ ui <- fluidPage(useShinyjs(),
                                                downloadButton("export_plot", label = "Export plot"),
                                                br(),
                                                br(),
-                                               downloadButton("export_code", label = "get code")
+                                               downloadButton("export_code", label = "Get Code")
                                         )
                                     )
 
@@ -179,11 +181,14 @@ ui <- fluidPage(useShinyjs(),
 server <- function(input, output) {
     # for expanding the max file size from 5mb to 30mb
     options(shiny.maxRequestSize=30*1024^2)
-    output$contents <- renderDataTable({
-        dataInput()
-    })
-    dataInput <- function() {
 
+    output$contents <- renderDataTable({
+        datatable(dataInput(),
+                  options = list(scrollX = TRUE,
+                                 scrollY = TRUE))
+    })
+
+    dataInput <- function() {
 
         req(input$file1)
 
@@ -219,21 +224,17 @@ server <- function(input, output) {
         #create new columns for max trails, sum of omit, avg of choice lat, avg of collect lat, premature choice, and more i think
         df <- df %>%
             group_by(session, Subject) %>%
-            mutate(trial = max(Trial)) %>%
+            mutate(trial = as.integer(max(Trial))) %>%
             group_by(session, Subject) %>%
             mutate(omission = sum(Omit)) %>%
             group_by(session, Subject) %>%
-            mutate(choice_lat = mean(Choice_Lat, na.rm = TRUE)) %>%
-            # group_by(session, Subject) %>%
-            # mutate(test_pre = sum(Premature_Resp)) %>%
-            # mutate(premature_resp = test_pre / trial) %>%
-            # select(- test_pre) %>%
+            mutate(choice_lat = mean(Choice_Lat[Choice_Lat != 0], na.rm = TRUE)) %>%
             group_by(session, Subject) %>%
             mutate(pellets = sum(Pellets)) %>%
             group_by(session, Subject) %>%
             mutate(time_out = Pun_Dur) %>%
             group_by(session, Subject) %>%
-            mutate(collect_lat = mean(Collect_Lat, na.rm = T))
+            mutate(collect_lat = mean(Collect_Lat[Collect_Lat != 0], na.rm = T))
 
         # use the new columns to create the premature column -> call this column premature_resp
         df <- df %>%
@@ -285,16 +286,28 @@ server <- function(input, output) {
                       collect_lat = mean(collect_lat, na.rm = F),
                       score = ((p1 + p2) - (p3 +p4)) * 100)
 
+        # create the wide form data for the wide form option
+        wide_df <- pivot_wider(long_df, names_from = session, values_from = c(score, p1,p2,p3,p4,premature,collect_lat, choice_lat, omission, trials), names_sort = TRUE)
 
+        # the options for sex, virus, and transgene status for the wide data set:
+        # add columns for sex if checkboxibout was selected for the wide data set:
+        if(input$sex_bool){
+            wide_df <- wide_df %>%
+                mutate(sex_status = ifelse(Subject %in% c(unlist(strsplit(input$sex_col, ","))), "Male", "Female"))
+        }
+        # add column for the transgene status if checkboxiput was selected for wide data:
+        if(input$tg_bool){
+            wide_df <- wide_df %>%
+                mutate(tg_status = ifelse(Subject %in% c(unlist(strsplit(input$tg_col, ","))), "TG+", "TG-"))
+        }
+        # add column for the virus status if checkboxinput was selected for the wide data:
+        if(input$virus_bool){
+            wide_df <- wide_df %>%
+                mutate(virus_status = ifelse(Subject %in% c(unlist(strsplit(input$hm3_col, ","))), "hM3",
+                                             ifelse(Subject %in% c(unlist(strsplit(input$hm4_col, ","))), "hM4", "Control")))
+        }
 
-        # add new column for sex status, TG status, and virus status - Keep this to use for future analysis
-        # long_df <- long_df %>%
-        #     mutate(sex_status = ifelse(Subject %in% c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
-        #                                               22,23,24,25,26,27,30,31,32,57,58), "Male", "Female")) %>%
-        #     mutate(virus = ifelse(Subject %in% c(1,2,3,4,6,7,8,33,34,35,36,37,38,39,57,61), "hM3",
-        #                           ifelse(Subject %in% c(9,10,11,12,13,14,15,16,41,42,43,44,45,46,47,48), "hM4", "Control"))) %>%
-        #     mutate(tg_status = ifelse(Subject %in% c(25,26,27,28,29,30,31,32,40,53,58,59,60,62,64), "TG-", "TG+"))
-
+        # The options for sex, virus and transgene status for the long data set:
         # add column for sex if checkboxinput was selected
         if(input$sex_bool){
             long_df <- long_df %>%
@@ -328,6 +341,7 @@ server <- function(input, output) {
                           total_collect_lat = mean(collect_lat, na.rm = F),
                           total_premature = mean(premature, na.rm = F))
         } else {
+
             sex_df <- long_df %>%
                 group_by(session) %>%
                 summarise(total_score = mean(score, na.rm = F),
@@ -403,6 +417,8 @@ server <- function(input, output) {
         # return the tidy data set
         if(input$disp == "long") {
             return(long_df)
+        } else if(input$disp == "wide") {
+            return(wide_df)
         } else if(input$disp == "sex"){
             return(sex_df)
         } else if(input$disp == "virus") {
@@ -508,3 +524,4 @@ server <- function(input, output) {
 
 ###################### Create Shiny app ######################
 shinyApp(ui, server)
+
