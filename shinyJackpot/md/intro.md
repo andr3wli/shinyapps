@@ -3,7 +3,7 @@
 <br>
 
 ### Introduction
-Lottery gambling is widely enjoyed by Canadians and is the most popular form of legal gambling. As such, discovering and analyzing patterns in lottery gambling data is an important but nontrivial task. In this work, three methods were presented to process and visualize it to the end user to allow for faster pattern discovery. A bubble graph was utilized for the comparative analysis of lottery sales per each neighbourhood of the city of Toronto, Canada. As well, a scatter plot was used to explore the relationship between different neighbourhoods, lottery game product, year, lottery ticket sales, and demographic information. Lastly, a line graph was deployed to compare the jackpot size and ticket sales over time.
+Lottery gambling is widely enjoyed by Canadians and is the most popular form of legal gambling. As such, discovering and analyzing patterns in lottery gambling data is an important but nontrivial task. In this work, three methods were presented to process and visualize it to the end user to allow for faster pattern discovery. A bubble graph was utilized for the comparative analysis of lottery sales per each neighbourhood of the city of Toronto, Canada. As well, a scatter plot was used to explore the relationship between different neighborhoods, lottery game product, year, lottery ticket sales, and demographic information. Lastly, a line graph was deployed to compare the jackpot size and ticket sales over time.
 
 <br>
 <h5 style="color:grey;"> Notes </h5>

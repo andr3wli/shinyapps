@@ -5,9 +5,9 @@ account: andrewcli
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3873398
-bundleId: 4403518
+bundleId: 5013037
 url: https://andrewcli.shinyapps.io/shinyJackpot/
-when: 1616917774.714
+when: 1631126245.23822
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: ._session_info.txt
