@@ -26,11 +26,11 @@ knitr::opts_chunk$set(echo = TRUE)
 **Data sources:** The data for the lottery ticket sales were obtained from [Ontraio Lottery and Gaming Corporation](https://www.olg.ca/en/home.html) via a freedom of information act request. These data sets are freely available on [Open Science Framework](//osf.io/qwrxy/) and on [Github](https://github.com/andr3wli/lottodata). Geocoding was provided by [GeoCoder.ca](https://geocoder.ca).
 
 **Launch application:**
-```{r}
-#shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shinyJackpot")
+```{r, eval = FALSE}
+shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shinyJackpot")
 ```
 
-Alternatively, it is available on my Shiny server: [ADD LINK TO SHINY APP HERE]()
+Alternatively, it is available on my Shiny server: [andrewcli.shinayapps.io/shinyJackpot](https://andrewcli.shinyapps.io/shinyJackpot/)
 
 ![map](md/map_screenshot.png)
 ![cor](md/cor_screenshot.png)

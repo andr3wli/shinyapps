@@ -35,11 +35,11 @@ by [GeoCoder.ca](https://geocoder.ca).
 **Launch application:**
 
 ``` r
-#shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shinyJackpot")
+shiny::runGitHub(repo = "andr3wli/shinyapps", subdir = "shinyJackpot")
 ```
 
-Alternatively, it is available on my Shiny server: [ADD LINK TO SHINY
-APP HERE]()
+Alternatively, it is available on my Shiny server:
+[andrewcli.shinayapps.io/shinyJackpot](https://andrewcli.shinyapps.io/shinyJackpot/)
 
 ![map](md/map_screenshot.png) ![cor](md/cor_screenshot.png)
 ![size](md/size_screenshot.png) ![data](md/data_screenshot.png)
