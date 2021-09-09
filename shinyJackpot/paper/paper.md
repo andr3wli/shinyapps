@@ -1,5 +1,5 @@
 ---
-title: '`shinyJackpot`: Visualizing lottery gambling in a large Canadian city'
+title: 'shinyJackpot: Visualizing lottery gambling in a large Canadian city'
 tags:
   - Gambling
   - Lottery
@@ -41,8 +41,7 @@ The current implementation of `shinyJackpot` is dependent on several R packages 
 
 ## Intro
 
-The Intro tab explains and introduces the users to the shiny app. Furthermore, it provides insights and motivations as to why we created this shiny app. Finally, it includes the contact information of the author and maintainer as well as acknowledgements.
-
+The Intro tab provides insights and motivations as to why we created this shiny app. Furthermore, it includes the contact information of the author and maintainer as well as acknowledgements.
 
 ## Map
 
@@ -69,7 +68,7 @@ The data tab offers users the opportunity to explore the data set interactively 
 
 # Licensing and Availability
 
-`shinyJackpot` is licenced under the GNU General Public Licence (v3.0). All of its source code was made publicly available in its [https://github.com/andr3wli/shinyapps/tree/main/shinyJackpot](GitHub) repository. Furthermore, there is a corresponding issue tracker for bug reporting and feature enhancements. Requests for fixes, feature updates, general questions and concerns can be made by [https://github.com/andr3wli/shinyapps/issues](filling an issue). Lastly, users are encouraged to contribute to the development of `shinyJackpot`. 
+`shinyJackpot` is licenced under the GNU General Public Licence (v3.0). All of its source code was made publicly available in its [GitHub](https://github.com/andr3wli/shinyapps/tree/main/shinyJackpot) repository. Furthermore, there is a corresponding issue tracker for bug reporting and feature enhancements. Requests for fixes, feature updates, general questions and concerns can be made by [filling an issue](https://github.com/andr3wli/shinyapps/issues). Lastly, users are encouraged to contribute to the development of `shinyJackpot`. 
 
 # Acknowledgements
 
