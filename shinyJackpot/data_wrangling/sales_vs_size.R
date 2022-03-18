@@ -47,41 +47,41 @@ combined_size <- combined_size %>%
 final_size <- combined_size %>%
   group_by(game, year, month_str, Borough, Neighbourhood) %>%
   summarise(mean_sales = mean(ticket_sales),
-            mean_jpsize = mean(jackpot_size))
+            mean_jpsize = sum(jackpot_size))
 
 # create a new data set from the final data for 1 more level of summary
 # need this data for the sick plot from that paper
 month_data <- final_size %>%
   group_by(game, year, month_str) %>%
   summarise(total_jp_size = mean(mean_jpsize),
-            total_jp_sales = mean(mean_sales))
+            total_jp_sales = sum(mean_sales))
 
 # same thing as before but making the data for the week
 week_data <- combined_size %>%
   group_by(game, year, week, Borough, Neighbourhood) %>%
-  summarise(mean_sales = mean(ticket_sales),
+  summarise(mean_sales = sum(ticket_sales),
             mean_jpsize = mean(jackpot_size))
 
 week_data <- week_data %>%
   group_by(game, year, week) %>%
   summarise(total_jp_size = mean(mean_jpsize),
-            total_jp_sales = mean(mean_sales))
+            total_jp_sales = sum(mean_sales))
 
 # same thing but for monthly effect (28, 30, or 31 days)
 by_month <- combined_size %>%
   group_by(game, year, day, Borough, Neighbourhood) %>%
-  summarise(mean_sales = mean(ticket_sales),
+  summarise(mean_sales = sum(ticket_sales),
             mean_jpsize = mean(jackpot_size))
 by_month <- by_month %>%
   group_by(game, year, day) %>%
   summarise(total_jp_size = mean(mean_jpsize),
-            total_jp_sales = mean(mean_sales))
+            total_jp_sales = sum(mean_sales))
 
 #save the data
-write_csv(final_size, file = here::here("data", "size_vs_sales_data.csv"))
-write_csv(month_data, file = here::here("data", "month_data.csv")) # for the by month plots
-write_csv(week_data, file = here::here("data", "week_data.csv")) # for the weekly plots
-write_csv(by_month, file = here::here("data", "per_month.csv")) # for the days of the month plots
+write_csv(final_size, file = here::here("shinyJackpot", "data", "size_vs_sales_data.csv"))
+write_csv(month_data, file = here::here("shinyJackpot", "data", "month_data.csv")) # for the by month plots
+write_csv(week_data, file = here::here("shinyJackpot", "data", "week_data.csv")) # for the weekly plots
+write_csv(by_month, file = here::here("shinyJackpot", "data", "per_month.csv")) # for the days of the month plots
 
 # clear the enviornment
 rm(combined_size, data_for_paper, dem_jp, month_data, week_data)
